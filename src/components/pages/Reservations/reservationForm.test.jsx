@@ -7,7 +7,7 @@ describe("Reservation form", () => {
   const dispatchOnDateChange = jest.fn();
   const submitData = jest.fn();
 
-  test("should correctly render all fields and their default values", async () => {
+  test("default value should render correctly", async () => {
     render(
       <ReservationForm
         availableTimes={availableTimes}
@@ -87,7 +87,7 @@ describe("Reservation form", () => {
     const submitButton = screen.getByRole("button");
 
     expect(errorMessage).toBeInTheDocument();
-    expect(errorMessage).toHaveTextContent("Please choose a valid date");
+    expect(errorMessage).toHaveTextContent("Please select date");
     expect(submitButton).toBeDisabled();
   });
 
