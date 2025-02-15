@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",
         password: ""
@@ -16,7 +18,19 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle login logic here
+        // Dummy data for validation
+        const dummyData = {
+            username: "testuser",
+            password: "testpassword"
+        };
+
+        // Validate user credentials
+        if (formData.username === dummyData.username && formData.password === dummyData.password) {
+            console.log("Login successful!");
+            navigate("/reservations");
+        } else {
+            alert("Invalid username or password.");
+        }
         console.log("Username:", formData.username);
         console.log("Password:", formData.password);
     };
